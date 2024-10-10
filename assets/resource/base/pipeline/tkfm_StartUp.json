@@ -1,0 +1,145 @@
+{
+    "跳转游戏主页": {
+        "next": [
+            "运行Home"
+        ]
+    },
+    "运行Home": {
+        "recognition": "DirectHit",
+        "action": "Key",
+        "key": [
+            3
+        ],
+        "next": [
+            "运行Home_Double"
+        ]
+    },
+    "运行Home_Double": {
+        "recognition": "DirectHit",
+        "action": "Key",
+        "key": [
+            3
+        ],
+        "next": [
+            "向右滑"
+        ]
+    },
+    "向右滑": {
+        "action": "Swipe",
+        "post_wait_freezes": 200,
+        "begin": [
+            1080,
+            463,
+            10,
+            10
+        ],
+        "end": [
+            838,
+            462,
+            10,
+            10
+        ],
+        "duration": 100
+    },
+    "点击图标": {
+        "recognition": "TemplateMatch",
+        "template": "tkfm\\StartUp\\icon.png",
+        "roi": [
+            142,
+            147,
+            1006,
+            466
+        ],
+        "action": "Click",
+        "index_doc": "Set in code.",
+        "next": [
+            "SKIP",
+            "点击图标"
+        ]
+    },
+    "SKIP": {
+        "recognition": "OCR",
+        "expected": "SKIP",
+        "roi": [
+            591,
+            42,
+            109,
+            65
+        ],
+        "action": "Click",
+        "next": [
+            "关闭登入公布栏",
+            "TAP_TO_START",
+            "SKIP"
+        ]
+    },
+    "关闭登入公布栏": {
+        "recognition": "TemplateMatch",
+        "template": "tkfm\\StartUp\\X.png",
+        "roi": [
+            322,
+            1112,
+            78,
+            86
+        ],
+        "action": "Click",
+        "timeout": 50000,
+        "next": [
+            "TAP_TO_START",
+            "关闭登入公布栏"
+        ],
+        "interrupt": [
+            "TAP_TO_START"
+        ]
+    },
+    "TAP_TO_START": {
+        "action": "Click",
+        "recognition": "OCR",
+        "expected": "TO",
+        "next": [
+            "关闭签到后公布栏",
+            "TAP_TO_START",
+            "点击返回"
+        ]
+    },
+    "关闭签到后公布栏": {
+        "recognition": "TemplateMatch",
+        "template": "tkfm\\StartUp\\X.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "post_delay": 500,
+        "action": "Click",
+        "next": [
+            "点击返回",
+            "关闭签到后公布栏"
+        ]
+    },
+    "点击返回": {
+        "recognition": "TemplateMatch",
+        "template": "tkfm\\StartUp\\backup.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "action": "Click"
+    },
+    "StartUpByDirect": {
+        "is_sub": true,
+        "action": "StartApp",
+        "package": "com.pinkcore.tkfm.erolabs/com.unity3d.player.UnityPlayerActivity"
+    },
+    "StartUpByOption": {
+        "next": [
+            "点击图标"
+        ],
+        "interrupt": [
+            "跳转游戏主页"
+        ]
+    }
+}

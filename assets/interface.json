@@ -30,26 +30,50 @@
     ],
     "task": [
         {
-            "name": "点击游戏",
-            "entry": "点击存储"
-        },
-        {
-            "name": "选项任务",
-            "entry": "MyTask2",
+            "name": "运行布魔",
+            "entry": "StartUpByOption",
             "option": [
-                "任务选项1"
+                "账号选择"
             ]
-        },
-        {
-            "name": "参数任务",
-            "entry": "MyTask3",
-            "option": [
-                "任务选项1"
-            ],
-            "pipeline_override": {}
         }
     ],
     "option": {
+        "账号选择": {
+            "cases": [
+                {
+                    "name": "账号1",
+                    "pipeline_override": {
+                        "点击图标": {
+                            "index": 0
+                        }
+                    }
+                },
+                {
+                    "name": "账号2",
+                    "pipeline_override": {
+                        "点击图标": {
+                            "index": 1
+                        }
+                    }
+                },
+                {
+                    "name": "账号3",
+                    "pipeline_override": {
+                        "点击图标": {
+                            "index": 2
+                        }
+                    }
+                },
+                {
+                    "name": "账号4",
+                    "pipeline_override": {
+                        "点击图标": {
+                            "index": 3
+                        }
+                    }
+                }
+            ]
+        },
         "任务选项1": {
             "cases": [
                 {
